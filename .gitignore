@@ -1,4 +1,5 @@
-config.ini
+# мои конфиги
+config_for_CalorieCalculator.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
