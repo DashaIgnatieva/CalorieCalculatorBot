@@ -17,7 +17,12 @@ dp = Dispatcher(bot)
 # Хендлер команды "start"
 @dp.message_handler(Command('start'))
 async def start(message: types.Message):
-    await message.answer('Привет!')
+    await message.answer('Привет!Для того, что бы узнать о возможностях этого бота напиши команду /help')
+
+# Хендлер команды "help"
+@dp.message_handler(Command('help'))
+async def help(message: types.Message):
+    await message.answer('Описание возможностей бота')
 
 # Запуск процесса поллинга новых апдейтов
 async def main():
