@@ -1,18 +1,19 @@
-from bot import dp, bot1
-from aiogram.dispatcher.filters import Command
+from bot import bot
 from aiogram import types
+from keybourd import klava
 
-# Хендлер команды "start"
-@dp.message_handler(Command('start'))
+# Комманда /start
 async def start(message: types.Message):
-    await message.answer('Привет!Для того, что бы узнать о возможностях этого бота напиши команду /help')
+    await bot.send_message(chat_id=message.from_user.id,
+                           text='Приветствую тебя в Калькуляторе Калорий!\nЕсли тебе нужна инструкция по командам бота, напиши /help',
+                           reply_markup=klava)
+    await message.delete()
 
-# Хендлер команды "help"
-@dp.message_handler(Command('help'))
+# Комманда /help
 async def help(message: types.Message):
     await message.answer('Описание возможностей бота')
+    await message.delete()
 
-# Функция для импорта хендлеров
-def commands_file_handlers():
-    dp.register_message_handler(start, Command('start'))
-    dp.register_message_handler(help, Command('help'))
+async def count_cal(message: types.Message):
+    await message.answer('Тут будет переход на инлайн клаву')
+    await message.delete()
